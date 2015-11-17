@@ -1,5 +1,4 @@
-# practica-cv
-Práctica de Shell y Control de Versiones
+# Práctica de Shell y Control de Versiones
 
 El objetivo de la tarea es crear un script en Bash shell para acceder a las series temporales mensuales de producción eléctrica publicadas por el Ministerio de Industria:
 
