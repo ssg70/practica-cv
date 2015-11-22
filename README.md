@@ -44,4 +44,5 @@ Se estructura el programa en varios ficheros sh según las funciones principales
 - `parser.sh`:
 - `script.sh`:
 
+Todos los scripts de prueba utilizarán el nombre `testN.sh`.
 
