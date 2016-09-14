@@ -1,3 +1,11 @@
+#!/bin/bash
 
-## Script para la generacion de la jerarquia de directorios
+####
+## Metodos de Gestion de la Informacion
+## Master de Matematicas y Computacion
+## Sergio Salomon Garcia   <sergio.salomon@alumnos.unican.es>
+##
+## Generacion de la jerarquia de directorios segun 
+## Comunidad > Provincia.
+####
 
