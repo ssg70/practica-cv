@@ -22,6 +22,9 @@ for y in '2006' '2007' '2008' '2009' '2010' '2011' '2012' '2013' '2014'
 do
 	for m in 'Enero' 'Febrero' 'Marzo' 'Abril' 'Mayo' 'Junio' 'Julio' 'Agosto' 'Septiembre' 'Octubre' 'Noviembre' 'Diciembre'
 	do 
+		## Muestra el progreso de la descarga
+		printf "."
+
 		## Guarda el mes en minuscula
 		mesMin="$(tr [A-Z] [a-z] <<< "$m")"
 
@@ -38,8 +41,6 @@ do
 		mv $tempdir$m $tempdir$m-$y				>& /dev/null
 		mv $tempdir$m\_$y $tempdir$m-$y			>& /dev/null
 		mv "$tempdir$mesMin $y" $tempdir$m-$y	>& /dev/null
-
-		printf "."
 	done 
 done
 

@@ -14,13 +14,13 @@ En concreto hay que obtener los datos de la tabla:
 
 > 1.2.7 PRODUCCION BRUTA DE ENERGIA TERMOELECTRICA POR PROVINCIAS SEGUN EL COMBUSTIBLE
 
-y generar un directorio por Comunidad autonoma (ID_Nombre Comunidad Autónoma).
+y generar un directorio por Comunidad autonoma (ID\_Nombre Comunidad Autónoma).
 
-> http://www.ine.es/daco/daco42/codmun/cod_ccaa.htm
+> http://www.ine.es/daco/daco42/codmun/cod\_ccaa.htm
 
-Dentro de cada comunidad autonoma, habrá otro directorio con la provincia (ID_Nombre Provincia):
+Dentro de cada comunidad autonoma, habrá otro directorio con la provincia (ID\_Nombre Provincia):
 
-> http://www.ine.es/daco/daco42/codmun/cod_provincia.htm
+> http://www.ine.es/daco/daco42/codmun/cod\_provincia.htm
 
 Y dentro de este directorio, habrá un fichero por cada tipo de energía termoeléctrica, incluyendo el Total.
 
@@ -45,4 +45,3 @@ Se estructura el programa en varios ficheros sh según las funciones principales
 - `script.sh`:
 
 Todos los scripts de prueba utilizarán el nombre `testN.sh`.
-
