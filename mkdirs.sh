@@ -15,14 +15,22 @@ hierachyfile="provincias.csv"
 ## Crea la carpeta raiz del directorio de datos
 mkdir $datadir >& /dev/null
 
+printf "\n"
+
 ## Itera a traves de las provicias y comunidades autonomas
 while read i
 do
-	comaut=$(printf "$i" | cut -d "," -f 2 | tr ' ' '-' | tr -d '.')
-	prov=$(printf "$i" | cut -d "," -f 1 | tr ' ' '-' | tr -d '.')
+	## Muestra el progreso del bucle
+	printf "."
 
-	printf "$i\n"
-	printf "\t$prov\n"
-	printf "\t$comaut\n"
+	## Extra cada valor eliminando espacios, puntos y convirtiendo a minusculas
+	comaut=$(printf "$i" | cut -d "," -f 2 | tr ' ' '-' | tr -d '.' | tr [A-Z] [a-z])
+	prov=$(printf "$i" | cut -d "," -f 1 | tr ' ' '-' | tr -d '.' | tr [A-Z] [a-z])
+
+	## Genera los directorios necesarios
+	mkdir "$datadir$comaut/" 		>& /dev/null
+	mkdir "$datadir$comaut/$prov/"	>& /dev/null
 done < $hierachyfile
+
+printf "\n"
 
