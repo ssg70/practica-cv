@@ -37,11 +37,17 @@ Es conveniente separar el script en varios ficheros, y para todo el desarrollo u
 
 
 ## Organizacion del código
-
 Se estructura el programa en varios ficheros sh según las funciones principales a resolver.
-- `getdata.sh`:
-- `mkdirs.sh`:
-- `parser.sh`:
-- `script.sh`:
+- `getdata.sh`: descarga los datos del repositorio web y los descomprime.
+- `mkdirs.sh`: genera la jerarquía de directorios por comunidades autónomas y provincias, e inicializa las series temporales vacías.
+- `parser.sh`: procesa los datos brutos para generar las series temporales correspondientes.
+- `script.sh`: programa principal, encargado de invocar al resto de funciones.
 
 Todos los scripts de prueba utilizarán el nombre `testN.sh`.
+
+Además, se emplea un fichero `provincias.csv` en el programa el cual establece la relación 'provincia > comunidad autónoma'.
+
+
+## Trabajo futuro
+La eficiencia de la función `parser.sh` deja mucho que desear. Por ello, una posible mejora sería la optimización de esta función, o el empleo de un esquema algorítmico más sofisticado para el procesado de los datos.
+
