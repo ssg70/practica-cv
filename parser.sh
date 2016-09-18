@@ -42,10 +42,15 @@ do
 		## Compone el nombre del fichero de datos
 		datfile="$tempdir$mes-$y/$dataname$mesnum$acorto.txt"
 
+		## Comprueba si el fichero de datos existe
+		if [ ! -f $datfile ]; then
+			break
+		fi
+
 		## Extrae las filas de datos de provincias
 		lines=$(cat $datfile| tail -n +10 | head -n 52)
 
-		## Recorre las filas de datos
+		## Recorre cada fila de datos y la procesa
 		while read row
 		do
 			## Conversion de caracteres para procesar ñ (problema en Mac solo?)
