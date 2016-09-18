@@ -9,8 +9,6 @@
 ## de las nuevas series temporales.
 ####
 
-LC_CTYPE=C
-
 datadir="data/"
 dataname="T_127P_"
 hierachyfile="provincias.csv"
@@ -50,14 +48,12 @@ do
 		## Recorre las filas de datos
 		while read row
 		do
-			## Conversion de caracteres para procesar ñ
+			## Conversion de caracteres para procesar ñ (problema en Mac solo?)
 			row=$(iconv -f ISO-8859-1 <<< "$row")
 			row=$(sed 's/Ñ/NH/g' <<< "$row")
 
-			## Extrae la primera columna, la provincia
-			col0=$(printf "$row" | colrm 22)
-
 			## Extrae de cada columna el valor de esa serie y elimina puntos
+			col0=$(printf "$row" | colrm 22)
 			col1=$(printf "$row" | colrm 1 22 | colrm 11 | tr -d '.')
 			col2=$(printf "$row" | colrm 1 35 | colrm 11 | tr -d '.')
 			col3=$(printf "$row" | colrm 1 48 | colrm 11 | tr -d '.')
@@ -76,12 +72,12 @@ do
 			col6=$(echo $col6)
 			col7=$(echo $col7)
 
-			## Transforma el valor cambiando espacios, puntos y mayusculas
-			prov=$(printf "$col0" | tr ' ' '-' | tr -d '.' | tr [A-Z] [a-z])
-
-			## Busca la comunidad autonoma
+			## Busca la comunidad autonoma correspondiente
 			search=$(grep "$col0," $hierachyfile)
 			comaut=$(printf "$search" | cut -d "," -f 2 | tr ' ' '-' | tr -d '.' | tr [A-Z] [a-z])
+
+			## Obtiene la provincia de la primera columna, cambiando espacios, puntos y mayusculas
+			prov=$(printf "$col0" | tr ' ' '-' | tr -d '.' | tr [A-Z] [a-z])
 
 			## Guarda los valores de cada columna en las series temporales
 			printf "$y$mesnum $col1\n" >> "$datadir$comaut/$prov/$serie1"
@@ -98,4 +94,4 @@ done
 printf "\n"
 
 ## Elimina el directorio de datos temporal
-# rm -rf $tempdir
+rm -rf $tempdir
