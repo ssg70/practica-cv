@@ -27,14 +27,14 @@ mkdir $datadir >& /dev/null
 printf "\n"
 
 ## Itera a traves de las provicias y comunidades autonomas
-while read i
+while read line
 do
 	## Muestra el progreso del bucle
 	printf "."
 
 	## Extra cada valor eliminando espacios, puntos y convirtiendo a minusculas
-	comaut=$(printf "$i" | cut -d "," -f 2 | tr ' ' '-' | tr -d '.' | tr [A-Z] [a-z])
-	prov=$(printf "$i" | cut -d "," -f 1 | tr ' ' '-' | tr -d '.' | tr [A-Z] [a-z])
+	comaut=$(printf "$line" | cut -d "," -f 2 | tr ' ' '-' | tr -d '.' | tr [A-Z] [a-z])
+	prov=$(printf "$line" | cut -d "," -f 1 | tr ' ' '-' | tr -d '.' | tr [A-Z] [a-z])
 
 	## Genera los directorios necesarios
 	mkdir "$datadir$comaut/" 		>& /dev/null
