@@ -12,9 +12,6 @@
 dataurl="http://www.minetur.gob.es/energia/balances/Publicaciones/ElectricasMensuales/"
 tempdir="tmp/"
 
-## Crea el directorio temporal para almacenar los datos
-mkdir $tempdir
-
 printf "\n"
 
 ## Itera por los anhos y meses a descargar

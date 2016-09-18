@@ -21,9 +21,6 @@ serie5="gas"
 serie6="otros"
 serie7="total"
 
-## Crea la carpeta raiz del directorio de datos
-mkdir $datadir >& /dev/null
-
 printf "\n"
 
 ## Itera a traves de las provicias y comunidades autonomas

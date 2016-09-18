@@ -98,5 +98,3 @@ done
 
 printf "\n"
 
-## Elimina el directorio de datos temporal
-rm -rf $tempdir
